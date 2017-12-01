@@ -1,11 +1,14 @@
 .data
-	number1: .word 5
-	number2: .word 25
+	
 .text
-	lw $t0, number1($zero)
-	lw $t1, number2($zero)
-	sub $t2, $t1, $t0
+	addi $t0, $zero, 2000
+	addi $t1, $zero, 10
+	
+	mult $t0, $t1
+	
+	mflo $s0
+	
 	li $v0, 1
-	add $a0, $zero, $t2
+	add $a0, $zero, $s0
 	syscall
 
