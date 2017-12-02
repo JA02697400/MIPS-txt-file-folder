@@ -1,7 +1,6 @@
 .data
-	prompt: .asciiz "Enter 1000 characters: "
 	array: .space 1001
-	message: .asciiz "\nToo Large\n"
+	message1: .asciiz "\nYou have entered a string that is 1000 characters long!!!\n"
 .text
 	main:
 		li $v0, 8
@@ -10,7 +9,13 @@
 		syscall
 		
 		li $v0, 4
+		la $a0, message1
+		syscall
 		
+		
+		li $v0, 4
+		la $a0, array
+		syscall
 		
 		
 		
