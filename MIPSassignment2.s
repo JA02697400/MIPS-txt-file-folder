@@ -1,21 +1,20 @@
 .data
 	prompt: .asciiz "Enter 1000 characters: "
+	array: .space 1001
 	message: .asciiz "\nToo Large\n"
 .text
-	li $v0, 4
-	la $a0, prompt
-	syscall
-	
-	li $v0, 8
-	syscall
-	
-	move $t0, $v0
-	
-	li $v0, 4
-	la $a0, message
-	syscall
-	
-	li $v0, 4
-	move $a0, $t0
+	main:
+		li $v0, 8
+		la $a0, array
+		li $a1, 1001
+		syscall
+		
+		li $v0, 4
+		
+		
+		
+		
+	#This is the end of main
+	li $v0, 10
 	syscall
 	
